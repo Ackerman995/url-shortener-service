@@ -1,0 +1,41 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=url_shortener
+    username: user
+    password: password
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 8080
+
+logging:
+  level:
+    root: info
+
+data:
+  redis:
+    port: 6379
+    host: localhost
+
+async:
+  max: 15
+  core: 10
+  queue-capacity: 10000
+
+hash:
+  range: 10000
+  capacity: 10000
+  fill-percent: 20
+  cron: "0 0 2 * * ?"
+
+schedule:
+  cron: "0 0 1 * * ?"
